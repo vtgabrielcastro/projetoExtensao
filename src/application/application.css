@@ -1,0 +1,56 @@
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+.button-custom {
+    -fx-background-color: #0598ff; /* Fundo azul */
+    -fx-text-fill: white; /* Texto branco */
+    -fx-border-color: white; /* Borda branca */
+    -fx-border-width: 2px; /* Largura da borda */
+}
+
+.texto-telaCadCliente{
+	-fx-font-size: 14px ; 
+	-fx-font-family: Roboto Medium;
+}
+
+.text-field {
+    -fx-background-color: #f0f0f0; /* Cor de fundo */
+    -fx-background-radius: 10; /* Arredonda os cantos */
+    -fx-padding: 10; /* Espaçamento interno */
+    -fx-border-color: #a0a0a0; /* Cor da borda */
+    -fx-border-radius: 10; /* Arredonda a borda */
+    -fx-border-width: 2; /* Largura da borda */
+    -fx-font-size: 14px; /* Tamanho da fonte */
+    -fx-font-family: "Arial"; /* Fonte */
+    -fx-text-fill: #333; /* Cor do texto */
+    -fx-prompt-text-fill: #999; /* Cor do texto de sugestão */
+    -fx-focus-color: #00bfff; /* Cor de foco (quando a caixa é clicada) */
+    -fx-faint-focus-color: transparent; /* Remove o brilho ao redor quando focado */
+}
+
+.text-field:hover {
+    -fx-background-color: #e8e8e8; /* Cor de fundo ao passar o mouse */
+}
+
+.text-field:focused {
+    -fx-border-color: #00bfff; /* Cor da borda ao focar */
+    -fx-background-color: #ffffff; /* Cor de fundo ao focar */
+}
+
+salvar-button {
+    -fx-background-color: #3598ff; 
+    -fx-text-fill: white; /* Texto branco */
+    -fx-font-size: 16px; /* Tamanho da fonte */
+    -fx-font-weight: bold; /* Texto em negrito */
+    -fx-background-radius: 10; /* Arredondar as bordas */
+    -fx-border-color: #388E3C; /* Cor da borda */
+    -fx-border-radius: 10; /* Bordas arredondadas */
+    -fx-padding: 10 20; /* Espaçamento interno */
+    -fx-cursor: hand; /* Mudar o cursor para mão ao passar o mouse */
+}
+
+.salvar-button:hover {
+    -fx-background-color: #0599ff; /* Cor ligeiramente mais escura ao passar o mouse */
+}
+
+.salvar-button:pressed {
+    -fx-background-color: #00008b; /* Cor mais escura ao clicar */
+}
