@@ -17,6 +17,8 @@ public class Main extends Application {
 			
 			  // Remove os botões de fechar/minimizar/maximizar
 			stage.initStyle(StageStyle.UNDECORATED);
+			stage.setResizable(false);
+			
 			
 			stage.setScene(scene);
 			stage.show();

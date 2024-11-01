@@ -5,132 +5,49 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.paint.Color?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity"
-	minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0"
-	prefWidth="700.0" stylesheets="@../application/application.css"
-	xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1"
-	fx:controller="gui.ClienteController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="700.0" stylesheets="@../application/application.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ClienteController">
 	<left>
-		<AnchorPane prefHeight="390.0" prefWidth="200.0"
-			style="-fx-background-color: #0598ff;" BorderPane.alignment="CENTER">
+		<AnchorPane prefHeight="600.0" prefWidth="200.0" style="-fx-background-color: #0598ff;" BorderPane.alignment="CENTER">
 			<children>
-				<Text fill="WHITE" layoutX="61.0" layoutY="85.0"
-					strokeType="OUTSIDE" strokeWidth="0.0" text="INICIO">
+				<Text fill="WHITE" layoutX="45.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Clientes">
 					<font>
-						<Font name="Roboto Medium" size="28.0" />
+						<Font name="Cooper Black" size="28.0" />
 					</font>
 				</Text>
-				<Line endX="76.5" layoutX="106.0" layoutY="108.0"
-					startX="-88.5" stroke="WHITE" />
-				<Button fx:id="btnCadastroCliente" layoutX="18.0"
-					layoutY="179.0" mnemonicParsing="false"
-					onAction="#handleClienteCadastro" prefHeight="29.0"
-					prefWidth="164.0" styleClass="button-custom"
-					text="Registrar Cliente">
-					<cursor>
-						<Cursor fx:constant="HAND" />
-					</cursor>
-					<effect>
-						<DropShadow>
-							<color>
-								<Color opacity="0.5419847369194031" />
-							</color>
-						</DropShadow>
-					</effect>
-					<font>
-						<Font name="System Bold" size="12.0" />
-					</font>
-				</Button>
-				<Button layoutX="18.0" layoutY="218.0"
-					mnemonicParsing="false" prefHeight="29.0" prefWidth="164.0"
-					style="-fx-background-color: #fff; -fx-text-fill: #0598ff;"
-					styleClass="button-custom" text="Lista de Clientes">
-					<cursor>
-						<Cursor fx:constant="HAND" />
-					</cursor>
-					<effect>
-						<DropShadow>
-							<color>
-								<Color opacity="0.5419847369194031" />
-							</color>
-						</DropShadow>
-					</effect>
-				</Button>
-				<Button layoutX="18.0" layoutY="256.0"
-					mnemonicParsing="false" prefHeight="29.0" prefWidth="164.0"
-					styleClass="button-custom" text="Registrar Venda">
-					<cursor>
-						<Cursor fx:constant="HAND" />
-					</cursor>
-					<effect>
-						<DropShadow>
-							<color>
-								<Color opacity="0.5419847369194031" />
-							</color>
-						</DropShadow>
-					</effect>
-				</Button>
-				<Button layoutX="18.0" layoutY="293.0"
-					mnemonicParsing="false" prefHeight="29.0" prefWidth="164.0"
-					styleClass="button-custom" text="Gestão de Pagamentos">
-					<cursor>
-						<Cursor fx:constant="HAND" />
-					</cursor>
-					<effect>
-						<DropShadow>
-							<color>
-								<Color opacity="0.5419847369194031" />
-							</color>
-						</DropShadow>
-					</effect>
-				</Button>
-				<Button fx:id="logoutButton" layoutX="18.0" layoutY="457.0"
-					mnemonicParsing="false" onAction="#handleLogout" prefHeight="29.0"
-					prefWidth="164.0" styleClass="button-custom" text="SAIR">
-					<cursor>
-						<Cursor fx:constant="HAND" />
-					</cursor>
-					<effect>
-						<DropShadow>
-							<color>
-								<Color opacity="0.5419847369194031" />
-							</color>
-						</DropShadow>
-					</effect>
-				</Button>
-				<Button layoutX="18.0" layoutY="329.0"
-					mnemonicParsing="false" prefHeight="29.0" prefWidth="164.0"
-					styleClass="button-custom" text="Relatório">
-					<cursor>
-						<Cursor fx:constant="HAND" />
-					</cursor>
-					<effect>
-						<DropShadow>
-							<color>
-								<Color opacity="0.5419847369194031" />
-							</color>
-						</DropShadow>
-					</effect>
-				</Button>
+				<Line endX="76.5" layoutX="106.0" layoutY="114.0" startX="-88.5" stroke="WHITE" />
+
+				<Button layoutX="17.0" layoutY="155.0" mnemonicParsing="false" onAction="#irParaRegistrarCliente" styleClass="button-custom" text="Registrar Cliente" />
+
+				<Button layoutX="17.0" layoutY="200.0" mnemonicParsing="false" style="-fx-background-color: #fff; -fx-text-fill: #0598ff;" styleClass="button-custom" text="Lista de Clientes">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Button>
+
+				<Button layoutX="17.0" layoutY="527.0" mnemonicParsing="false" onAction="#irParaLogin" styleClass="button-custom" text="SAIR">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Button>
+
+				<Button layoutX="17.0" layoutY="380.0" mnemonicParsing="false" styleClass="button-custom" text="Relatório" />
+				<Button layoutX="17.0" layoutY="290.0" mnemonicParsing="false" onAction="#irParaProdutos" styleClass="button-custom" text="Produtos" />
+
+				<Button layoutX="17.0" layoutY="335.0" mnemonicParsing="false" styleClass="button-custom" text="Gestão de Pagamentos" />
+
+				<Button layoutX="17.0" layoutY="245.0" mnemonicParsing="false" onAction="#irParaVenda" styleClass="button-custom" text="Registrar Venda" />
+
 			</children>
 		</AnchorPane>
 	</left>
 	<right>
-		<AnchorPane prefHeight="500.0" prefWidth="508.0"
-			BorderPane.alignment="CENTER">
+		<AnchorPane prefHeight="600.0" prefWidth="500.0" BorderPane.alignment="CENTER">
 			<children>
-				<Button layoutX="457.0" layoutY="-1.0" minWidth="43.0"
-					mnemonicParsing="false" onAction="#exit" prefHeight="30.0"
-					prefWidth="43.0" style="-fx-background-color: #0598ff;" text="X"
-					textFill="WHITE">
+				<Button layoutX="457.0" layoutY="-1.0" minWidth="43.0" mnemonicParsing="false" onAction="#exit" prefHeight="30.0" prefWidth="43.0" style="-fx-background-color: #0598ff;" text="X" textFill="WHITE">
 					<font>
 						<Font name="Roboto Medium" size="12.0" />
 					</font>
@@ -138,8 +55,23 @@
 						<Cursor fx:constant="HAND" />
 					</cursor>
 				</Button>
-				<Label layoutX="179.0" layoutY="29.0" text="Lista de Clientes" />
-				
+				<Label layoutX="140.0" layoutY="41.0" text="Lista de Clientes">
+					<font>
+						<Font name="Cooper Black" size="27.0" />
+					</font>
+				</Label>
+				<TableView fx:id="tableCliente" layoutX="18.0" layoutY="155.0" prefHeight="363.0" prefWidth="467.0">
+					<columns>
+						<TableColumn fx:id="idCol" prefWidth="44.0" text="id" />
+						<TableColumn fx:id="nomeCol" prefWidth="96.0" text="nome" />
+						<TableColumn fx:id="telefoneCol" prefWidth="96.0" text="telefone" />
+						<TableColumn fx:id="enderecoCol" prefWidth="130.0" text="endereço" />
+						<TableColumn fx:id="saldoCol" prefWidth="100.0" text="Saldo Pendente" />
+					</columns>
+				</TableView>
+				<Button layoutX="322.0" layoutY="120.0" mnemonicParsing="false" onAction="#irParaRegistrarCliente" style="-fx-border-color: null;" styleClass="button-custom" text="Adicionar Cliente" />
+            <Button layoutX="18.0" layoutY="122.0" mnemonicParsing="false" onAction="#atualizarLista" text="Atualizar" />
+
 
 			</children>
 		</AnchorPane>

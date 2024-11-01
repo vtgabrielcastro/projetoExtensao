@@ -22,9 +22,11 @@ public class Cliente {
 		this.endereco = endereco;
 		this.limite_credito = limite_credito;
 	}
-	public Cliente(int id_clientes, String nome, double saldo_devedor) {
+	public Cliente(int id_clientes, String nome, String tel, String endereco, double saldo_devedor) {
 		this.id_cliente = id_clientes;
 		this.nome = nome;
+		this.telefone = tel;
+		this.endereco = endereco;
 		this.saldo_devedor = saldo_devedor;
 	}
 	public int getId_cliente() {

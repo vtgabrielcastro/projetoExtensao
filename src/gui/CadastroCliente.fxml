@@ -4,134 +4,80 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.paint.Color?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" stylesheets="@../application/application.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ClienteController">
-   <left>
-      <AnchorPane prefHeight="390.0" prefWidth="200.0" style="-fx-background-color: #0598ff;" BorderPane.alignment="CENTER">
-         <children>
-         	<Text fill="WHITE" layoutX="45.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cadastro">
-               <font>
-                  <Font name="Roboto Medium" size="28.0" />
-               </font>
-            </Text>
-            <Line endX="76.5" layoutX="106.0" layoutY="108.0" startX="-88.5" stroke="WHITE" />
-            <Button layoutX="18.0" layoutY="179.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="164.0" style="-fx-background-color: #fff; -fx-text-fill: #0598ff;" styleClass="button-custom" text="Registrar Cliente">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <effect>
-                  <DropShadow>
-                     <color>
-                        <Color opacity="0.5419847369194031" />
-                     </color>
-                  </DropShadow>
-               </effect>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="700.0" stylesheets="@../application/application.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ClienteController">
+	<left>
+		<AnchorPane prefHeight="600.0" prefWidth="200.0" style="-fx-background-color: #0598ff;" BorderPane.alignment="CENTER">
+			<children>
+				<Text fill="WHITE" layoutX="45.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cadastro">
+					<font>
+						<Font name="Cooper Black" size="28.0" />
+					</font>
+				</Text>
+				<Line endX="76.5" layoutX="106.0" layoutY="114.0" startX="-88.5" stroke="WHITE" />
+				<Button layoutX="17.0" layoutY="155.0" mnemonicParsing="false" style="-fx-background-color: #fff; -fx-text-fill: #0598ff;" styleClass="button-custom" text="Registrar Cliente">
+					<font>
+						<Font name="System Bold" size="12.0" />
+					</font>
+				</Button>
+				<Button layoutX="17.0" layoutY="200.0" mnemonicParsing="false" onAction="#irParaListaDeClientes" styleClass="button-custom" text="Lista de Clientes" />
+
+				<Button layoutX="17.0" layoutY="245.0" mnemonicParsing="false" onAction="#irParaVenda" styleClass="button-custom" text="Registrar Venda" />
+
+				<Button layoutX="17.0" layoutY="527.0" mnemonicParsing="false" onAction="#irParaLogin" styleClass="button-custom" text="SAIR">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font></Button>
-            <Button fx:id="btnListaCliente" layoutX="18.0" layoutY="218.0" mnemonicParsing="false" onAction="#handleListaCliente" prefHeight="29.0" prefWidth="164.0" styleClass="button-custom" text="Lista de Clientes">
+
+				<Button layoutX="17.0" layoutY="380.0" mnemonicParsing="false" styleClass="button-custom" text="Relatório" />
+				<Button layoutX="17.0" layoutY="290.0" mnemonicParsing="false" onAction="#irParaProdutos" styleClass="button-custom" text="Produtos" />
+
+				<Button fx:id="btnPagamento" layoutX="17.0" layoutY="335.0" mnemonicParsing="false" styleClass="button-custom" text="Gestão de Pagamentos" />
+
+			</children>
+
+		</AnchorPane>
+	</left>
+	<right>
+		<AnchorPane prefHeight="600.0" prefWidth="500.0" BorderPane.alignment="CENTER">
+		
+			<children>
+			<Button layoutX="457.0" layoutY="-1.0" minWidth="43.0" mnemonicParsing="false" onAction="#exit" prefHeight="30.0" prefWidth="43.0" style="-fx-background-color: #0598ff;" text="X" textFill="WHITE">
                <cursor>
                   <Cursor fx:constant="HAND" />
-               </cursor>
-               <effect>
-                  <DropShadow>
-                     <color>
-                        <Color opacity="0.5419847369194031" />
-                     </color>
-                  </DropShadow>
-               </effect>
-            </Button>
-            <Button layoutX="18.0" layoutY="256.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="164.0" styleClass="button-custom" text="Registrar Venda">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <effect>
-                  <DropShadow>
-                     <color>
-                        <Color opacity="0.5419847369194031" />
-                     </color>
-                  </DropShadow>
-               </effect>
-            </Button>
-            <Button layoutX="18.0" layoutY="293.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="164.0" styleClass="button-custom" text="Gestão de Pagamentos">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <effect>
-                  <DropShadow>
-                     <color>
-                        <Color opacity="0.5419847369194031" />
-                     </color>
-                  </DropShadow>
-               </effect>
-            </Button>
-            <Button fx:id="logoutButton" layoutX="18.0" layoutY="457.0" mnemonicParsing="false" onAction="#handleLogout" prefHeight="29.0" prefWidth="164.0" styleClass="button-custom" text="SAIR">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <effect>
-                  <DropShadow>
-                     <color>
-                        <Color opacity="0.5419847369194031" />
-                     </color>
-                  </DropShadow>
-               </effect>
-            </Button>
-            <Button layoutX="18.0" layoutY="329.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="164.0" styleClass="button-custom" text="Relatório">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <effect>
-                  <DropShadow>
-                     <color>
-                        <Color opacity="0.5419847369194031" />
-                     </color>
-                  </DropShadow>
-               </effect>
-            </Button>  
-         </children></AnchorPane>
-   </left>
-   <right>
-      <AnchorPane prefHeight="500.0" prefWidth="508.0" BorderPane.alignment="CENTER">
-         <children>
-         	<Label layoutX="174.0" layoutY="27.0" text="NOVO Cliente">
-               <font>
-                  <Font size="27.0" />
-               </font>
-            </Label>
-            <TextField fx:id="nomeTF" layoutX="160.0" layoutY="89.0" prefHeight="25.0" prefWidth="185.0" promptText="Nome do Cliente" />
-            <TextField fx:id="cpfTF" layoutX="159.0" layoutY="150.0" prefHeight="25.0" prefWidth="186.0" promptText="CPF" />
-            <TextField fx:id="telefoneTF" layoutX="160.0" layoutY="217.0" prefHeight="25.0" prefWidth="185.0" promptText="Telefone" />
-            <TextField fx:id="enderecoTF" layoutX="126.0" layoutY="344.0" prefHeight="25.0" prefWidth="263.0" promptText="Endereço" />
-            <TextField fx:id="limite_creditoTF" layoutX="206.0" layoutY="393.0" promptText="R$ Limite de Crédito" />
-            <TextField fx:id="emailTF" layoutX="126.0" layoutY="280.0" prefHeight="25.0" prefWidth="263.0" promptText="E-mail" />
-            
-            <Button layoutX="197.0" layoutY="447.0" mnemonicParsing="false" onAction="#salvarCliente" prefHeight="29.0" prefWidth="121.0" styleClass="salvar-button" text="Salvar" />
-            
-            <Label fx:id="msgCadastro" layoutX="248.0" layoutY="29.0" prefHeight="17.0" prefWidth="0.0" textFill="#5309ff" />
-            
-            <Button layoutX="457.0" layoutY="-1.0" minWidth="43.0" mnemonicParsing="false" onAction="#exit" prefHeight="30.0" prefWidth="43.0" style="-fx-background-color: #0598ff;" text="X" textFill="WHITE">
-               <font>
-                  <Font name="Roboto Medium" size="12.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Label layoutX="155.0" layoutY="69.0" styleClass="texto-telaCadCliente" text="Nome" />
-            <Label layoutX="163.0" layoutY="130.0" styleClass="texto-telaCadCliente" text="CPF" />
-            <Label layoutX="160.0" layoutY="196.0" styleClass="texto-telaCadCliente" text="Número para Contato" />
-            <Label layoutX="121.0" layoutY="258.0" styleClass="texto-telaCadCliente" text="E-mail" />
-            <Label layoutX="122.0" layoutY="324.0" styleClass="texto-telaCadCliente" text="Endereço" />
-            <Label layoutX="84.0" layoutY="404.0" styleClass="texto-telaCadCliente" text="Limite de Crédito:" />
-         </children>
-      </AnchorPane>
-   </right>
+               </cursor></Button>
+				<Label layoutX="180.0" layoutY="53.0" text="NOVO Cliente">
+					<font>
+						<Font name="Cooper Black" size="28.0" />
+					</font>
+				</Label>
+				<TextField fx:id="nomeTF" layoutX="144.0" layoutY="134.0" prefHeight="40.0" prefWidth="263.0" promptText="Nome do Cliente" />
+				<TextField fx:id="cpfTF" layoutX="144.0" layoutY="207.0" prefHeight="40.0" prefWidth="263.0" promptText="CPF" />
+				<TextField fx:id="telefoneTF" layoutX="142.0" layoutY="282.0" prefHeight="40.0" prefWidth="263.0" promptText="Telefone" />
+				<TextField fx:id="enderecoTF" layoutX="138.0" layoutY="427.0" prefHeight="40.0" prefWidth="263.0" promptText="Endereço" />
+				<TextField fx:id="limite_creditoTF" layoutX="215.0" layoutY="484.0" promptText="R$ Limite de Crédito" />
+				<TextField fx:id="emailTF" layoutX="141.0" layoutY="357.0" prefHeight="40.0" prefWidth="263.0" promptText="E-mail" />
+
+				<Button layoutX="203.0" layoutY="548.0" mnemonicParsing="false" onAction="#salvarCliente" prefHeight="29.0" prefWidth="121.0" styleClass="salvar-button" text="Salvar" />
+
+				<Label fx:id="msgCadastro" layoutX="140.0" layoutY="14.0" prefHeight="32.0" prefWidth="251.0" textAlignment="CENTER" textFill="#5309ff">
+					<font>
+						<Font name="System Bold" size="13.0" />
+					</font>
+				</Label>
+				<Label layoutX="154.0" layoutY="109.0" styleClass="texto-telaCadCliente" text="Nome" />
+				<Label layoutX="151.0" layoutY="183.0" styleClass="texto-telaCadCliente" text="CPF" />
+				<Label layoutX="149.0" layoutY="259.0" styleClass="texto-telaCadCliente" text="Número para Contato" />
+				<Label layoutX="149.0" layoutY="334.0" styleClass="texto-telaCadCliente" text="E-mail" />
+				<Label layoutX="144.0" layoutY="405.0" styleClass="texto-telaCadCliente" text="Endereço" />
+				<Label layoutX="93.0" layoutY="495.0" styleClass="texto-telaCadCliente" text="Limite de Crédito:" />
+            <Button layoutX="3.0" layoutY="4.0" mnemonicParsing="false" onAction="#irParaDashboard" text="Voltar" />
+			</children>
+		</AnchorPane>
+	</right>
 </BorderPane>

@@ -1,11 +1,17 @@
 /* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
 .button-custom {
+	-fx-pref-height: 29.0;
+    -fx-pref-width: 164.0;
     -fx-background-color: #0598ff; /* Fundo azul */
     -fx-text-fill: white; /* Texto branco */
     -fx-border-color: white; /* Borda branca */
     -fx-border-width: 2px; /* Largura da borda */
+    -fx-cursor: HAND;
+    -fx-effect: dropshadow(one-pass-box, rgba(0, 0, 0, 0.54), 10, 0, 0, 0);
 }
-
+.button-custom:hover{
+	-fx-background-color: #0368FF;
+}
 .texto-telaCadCliente{
 	-fx-font-size: 14px ; 
 	-fx-font-family: Roboto Medium;
@@ -49,8 +55,4 @@ salvar-button {
 
 .salvar-button:hover {
     -fx-background-color: #0599ff; /* Cor ligeiramente mais escura ao passar o mouse */
-}
-
-.salvar-button:pressed {
-    -fx-background-color: #00008b; /* Cor mais escura ao clicar */
 }

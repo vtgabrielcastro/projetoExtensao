@@ -2,12 +2,10 @@ package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 
 import Model.Cliente;
+import Model.Produto;
 import application.ConnectionBD;
 
 public class ClienteDAO {
@@ -30,28 +28,18 @@ public class ClienteDAO {
 	            e.printStackTrace();
 	        }
 	    }
-	 
-	 
-	 public List<Cliente> listarTodos() {
-	        List<Cliente> clientes = new ArrayList<>();
-	        String query = "SELECT id_cliente, nome, saldo_devedor FROM cliente";
+	 public void salvarProduto(Produto produto) {
+	        String sql = "INSERT INTO Produto (nome_produto, preco_unitario) VALUES (?,?)";
 
-	        try {
-	        	Connection conn = ConnectionBD.getConnection();
-	            PreparedStatement ps = conn.prepareStatement(query);
-	            ResultSet rs = ps.executeQuery();
+	        try (Connection conn = ConnectionBD.getConnection();
+	             PreparedStatement stmt = conn.prepareStatement(sql)) {
 
-	            while (rs.next()) {
-	                clientes.add(new Cliente(
-	                    rs.getInt("id_cliente"),
-	                    rs.getString("nome"),
-	                    rs.getDouble("saldo_devedor")
-	                ));
-	            }
+	            stmt.setString(1, produto.getNome_produto());  // Define o valor para o nome
+	            stmt.setDouble(2, produto.getPreco_unitario());
+	            stmt.executeUpdate();     // Executa a inserção
+
 	        } catch (SQLException e) {
 	            e.printStackTrace();
 	        }
-
-	        return clientes;
 	    }
 }
