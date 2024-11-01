@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 import Model.Produto;
+import application.Alerts;
 import application.BaseController;
 import application.ConnectionBD;
 import dao.ClienteDAO;
@@ -20,6 +21,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 public class ProdutoController extends BaseController implements Initializable {
@@ -38,32 +40,39 @@ public class ProdutoController extends BaseController implements Initializable {
 		String precoStr = textFieldPrecoProduto.getText();
 		StringBuilder mensagemErro = new StringBuilder();
 
-		if (nomeP.isEmpty() || precoStr.isEmpty()) {
-			mensagemErro.append("Preencha todos os campos");
-		}
+		// Verificação de campos vazios
+	    if (nomeP == null || nomeP.trim().isEmpty()) {
+	        mensagemErro.append("O campo Nome do Produto deve ser preenchido.\n");
+	    }
+	    if (precoStr == null || precoStr.trim().isEmpty()) {
+	        mensagemErro.append("O campo Preço do Produto deve ser preenchido.\n");
+	    }
 
-		if (mensagemErro.length() > 0) {
-			msgLabel.setText(mensagemErro.toString()); // Mostra mensagem de erro
-		} else {
-			try {
-				// Converte limite de crédito para double e continua o cadastro
-				double preco = Double.parseDouble(precoStr);
+	    // Exibe o alerta se houver erros de preenchimento
+	    if (mensagemErro.length() > 0) {
+	        Alerts.showAlert("ERROR", null, mensagemErro.toString(), AlertType.ERROR);
+	        return; // Sai do método se houver erros
+	    }
 
-				// Cria um objeto Cliente com os dados capturados
-				Produto produto = new Produto(nomeP, preco);
+	    // Verificação do formato numérico do campo Preço
+	    try {
+	        double preco = Double.parseDouble(precoStr);
 
-				clienteDAO.salvarProduto(produto);
+	        // Cria e salva o objeto Produto
+	        Produto produto = new Produto(nomeP, preco);
+	        clienteDAO.salvarProduto(produto);
 
-				// Limpa os campos após o salvamento
-				textFieldProduto.clear();
-				textFieldPrecoProduto.clear();
+	        // Limpa os campos após o salvamento
+	        textFieldProduto.clear();
+	        textFieldPrecoProduto.clear();
 
-				loadDateProduto();
-				msgLabel.setText("Produto Cadastrado!");
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
+	        loadDateProduto();
+
+	        // Mensagem de sucesso
+	        Alerts.showAlert("Sucesso", null, "Produto cadastrado com sucesso!", AlertType.INFORMATION);
+	    } catch (NumberFormatException e) {
+	        Alerts.showAlert("ERROR", null, "Valor do produto deve ser um número", AlertType.ERROR);
+	    }
 	}
 
 	@FXML
