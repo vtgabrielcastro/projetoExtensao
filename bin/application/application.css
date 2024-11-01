@@ -15,8 +15,12 @@
 .texto-telaCadCliente{
 	-fx-font-size: 14px ; 
 	-fx-font-family: Roboto Medium;
+	-fx-text-fill: #0368FF;
+	-fx-font-weight: bold;
 }
-
+.text-left{
+	-fx-text-fill: #0368FF;
+}
 .text-field {
     -fx-background-color: #f0f0f0; /* Cor de fundo */
     -fx-background-radius: 10; /* Arredonda os cantos */
@@ -41,7 +45,7 @@
     -fx-background-color: #ffffff; /* Cor de fundo ao focar */
 }
 
-salvar-button {
+.salvar-button {
     -fx-background-color: #3598ff; 
     -fx-text-fill: white; /* Texto branco */
     -fx-font-size: 16px; /* Tamanho da fonte */
@@ -49,10 +53,36 @@ salvar-button {
     -fx-background-radius: 10; /* Arredondar as bordas */
     -fx-border-color: #388E3C; /* Cor da borda */
     -fx-border-radius: 10; /* Bordas arredondadas */
-    -fx-padding: 10 20; /* Espaçamento interno */
+    -fx-padding: 7 15; /* Espaçamento interno */
     -fx-cursor: hand; /* Mudar o cursor para mão ao passar o mouse */
 }
 
 .salvar-button:hover {
-    -fx-background-color: #0599ff; /* Cor ligeiramente mais escura ao passar o mouse */
+    -fx-background-color: #0368FF; /* Cor ligeiramente mais escura ao passar o mouse */
+}
+
+
+.table-view {
+    -fx-background-color: #f5f5f5;
+    -fx-border-color: #f5f5f5;
+    -fx-border-radius: 5;
+    -fx-padding: 10;
+}
+
+
+.table-view .column-header {
+    -fx-background-color: #0598ff;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-alignment: CENTER;
+}
+
+.table-view .table-row-cell:odd {
+    -fx-background-color: #e7e7e7;
+}
+
+.table-view .table-cell {
+    -fx-alignment: CENTER; /* Centraliza o texto */
+    -fx-padding: 5;
+    -fx-font-size: 14px;
 }

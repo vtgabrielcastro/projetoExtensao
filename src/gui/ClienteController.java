@@ -61,23 +61,8 @@ public class ClienteController extends BaseController implements Initializable{
         StringBuilder mensagemErro = new StringBuilder();
 
         // Verifica cada campo e adiciona mensagem se estiver vazio
-        if (nome.isEmpty()) {
-            mensagemErro.append("Nome não preenchido.");
-        }
-        if (cpf.isEmpty()) {
-            mensagemErro.append(" CPF não preenchido.");
-        }
-        if (telefone.isEmpty()) {
-            mensagemErro.append(" Telefone não preenchido.\n");
-        }
-        if (email.isEmpty()) {
-            mensagemErro.append("Email não preenchido. ");
-        }
-        if (endereco.isEmpty()) {
-            mensagemErro.append(" Endereço não preenchido.\n");
-        }
-        if (limiteCreditoStr.isEmpty()) {
-            mensagemErro.append(" Limite de crédito não preenchido.");
+        if (nome.isEmpty() || cpf.isEmpty() || telefone.isEmpty() || email.isEmpty() || endereco.isEmpty() || limiteCreditoStr.isEmpty()) {
+            mensagemErro.append("Preencha os campos corretamente.");
         }
 
         // Verifica se há erros de entrada e exibe mensagem, caso contrário salva

@@ -16,6 +16,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -28,27 +29,40 @@ public class ProdutoController extends BaseController implements Initializable {
 	private TextField textFieldProduto;
 	@FXML
 	private TextField textFieldPrecoProduto;
+	@FXML
+	private Label msgLabel;
 
 	@FXML
 	public void salvarProduto() {
 		String nomeP = textFieldProduto.getText();
 		String precoStr = textFieldPrecoProduto.getText();
-		try {
-			// Converte limite de crédito para double e continua o cadastro
-			double preco = Double.parseDouble(precoStr);
+		StringBuilder mensagemErro = new StringBuilder();
 
-			// Cria um objeto Cliente com os dados capturados
-			Produto produto = new Produto(nomeP, preco);
+		if (nomeP.isEmpty() || precoStr.isEmpty()) {
+			mensagemErro.append("Preencha todos os campos");
+		}
 
-			clienteDAO.salvarProduto(produto);
+		if (mensagemErro.length() > 0) {
+			msgLabel.setText(mensagemErro.toString()); // Mostra mensagem de erro
+		} else {
+			try {
+				// Converte limite de crédito para double e continua o cadastro
+				double preco = Double.parseDouble(precoStr);
 
-			// Limpa os campos após o salvamento
-			textFieldProduto.clear();
-			textFieldPrecoProduto.clear();
+				// Cria um objeto Cliente com os dados capturados
+				Produto produto = new Produto(nomeP, preco);
 
-			loadDateProduto();
-		} catch (Exception e) {
-			e.printStackTrace();
+				clienteDAO.salvarProduto(produto);
+
+				// Limpa os campos após o salvamento
+				textFieldProduto.clear();
+				textFieldPrecoProduto.clear();
+
+				loadDateProduto();
+				msgLabel.setText("Produto Cadastrado!");
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 	}
 

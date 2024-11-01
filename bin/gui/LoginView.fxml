@@ -31,7 +31,7 @@
          <children>
             <TextField fx:id="usernameField" layoutX="119.0" layoutY="202.0" promptText="Usuário" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
             <PasswordField fx:id="passwordField" layoutX="119.0" layoutY="272.0" promptText="Senha" style="-fx-background-color: transparent; -fx-border-color: #0594ff; -fx-border-width: 0px 0px 2px 0px;" />
-            <Button fx:id="loginButton" layoutX="146.0" layoutY="331.0" mnemonicParsing="false" onAction="#handleLogin" prefHeight="30.0" prefWidth="101.0" style="-fx-background-color: #0598ff;" text="Entrar" textFill="WHITE">
+            <Button fx:id="loginButton" layoutX="146.0" layoutY="331.0" mnemonicParsing="false" onAction="#handleLogin" prefHeight="30.0" prefWidth="101.0"  text="Entrar" styleClass="salvar-button">
                <font>
                   <Font name="Cambria" size="14.0" />
                </font>
@@ -54,16 +54,10 @@
                   </DropShadow>
                </effect>
             </Text>
-            <Text layoutX="121.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Usuário">
-               <font>
-                  <Font name="Roboto Medium" size="14.0" />
-               </font>
-            </Text>
-            <Text layoutX="119.0" layoutY="268.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Senha">
-               <font>
-                  <Font name="Roboto Medium" size="14.0" />
-               </font>
-            </Text>
+            <Text styleClass="texto-telaCadCliente" layoutX="121.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Usuário"/>
+              
+            <Text styleClass="texto-telaCadCliente" layoutX="119.0" layoutY="268.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Senha"/>
+            
             <Label fx:id="errorLabel" layoutX="140.0" layoutY="380.0" textFill="red" />
             <Button layoutX="353.0" layoutY="-1.0" minWidth="43.0" mnemonicParsing="false" onAction="#exit" prefHeight="30.0" prefWidth="43.0" style="-fx-background-color: #0598ff;" text="X" textFill="WHITE">
                <font>

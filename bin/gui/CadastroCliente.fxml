@@ -51,32 +51,32 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
-				<Label layoutX="180.0" layoutY="53.0" text="NOVO Cliente">
+				<Label layoutX="180.0" layoutY="46.0" styleClass="text-left" text="Novo Cliente">
 					<font>
 						<Font name="Cooper Black" size="28.0" />
 					</font>
 				</Label>
-				<TextField fx:id="nomeTF" layoutX="144.0" layoutY="134.0" prefHeight="40.0" prefWidth="263.0" promptText="Nome do Cliente" />
-				<TextField fx:id="cpfTF" layoutX="144.0" layoutY="207.0" prefHeight="40.0" prefWidth="263.0" promptText="CPF" />
-				<TextField fx:id="telefoneTF" layoutX="142.0" layoutY="282.0" prefHeight="40.0" prefWidth="263.0" promptText="Telefone" />
-				<TextField fx:id="enderecoTF" layoutX="138.0" layoutY="427.0" prefHeight="40.0" prefWidth="263.0" promptText="Endereço" />
-				<TextField fx:id="limite_creditoTF" layoutX="215.0" layoutY="484.0" promptText="R$ Limite de Crédito" />
-				<TextField fx:id="emailTF" layoutX="141.0" layoutY="357.0" prefHeight="40.0" prefWidth="263.0" promptText="E-mail" />
+				<TextField fx:id="nomeTF" layoutX="125.0" layoutY="127.0" prefHeight="40.0" prefWidth="263.0" promptText="Nome do Cliente" />
+				<TextField fx:id="cpfTF" layoutX="125.0" layoutY="200.0" prefHeight="40.0" prefWidth="263.0" promptText="CPF" />
+				<TextField fx:id="telefoneTF" layoutX="125.0" layoutY="275.0" prefHeight="40.0" prefWidth="263.0" promptText="Telefone" />
+				<TextField fx:id="enderecoTF" layoutX="125.0" layoutY="420.0" prefHeight="40.0" prefWidth="263.0" promptText="Endereço" />
+				<TextField fx:id="limite_creditoTF" layoutX="199.0" layoutY="477.0" promptText="R$ Limite de Crédito" />
+				<TextField fx:id="emailTF" layoutX="125.0" layoutY="350.0" prefHeight="40.0" prefWidth="263.0" promptText="E-mail" />
 
-				<Button layoutX="203.0" layoutY="548.0" mnemonicParsing="false" onAction="#salvarCliente" prefHeight="29.0" prefWidth="121.0" styleClass="salvar-button" text="Salvar" />
+				<Button layoutX="162.0" layoutY="530.0" mnemonicParsing="false" onAction="#salvarCliente" prefHeight="47.0" prefWidth="177.0" styleClass="salvar-button" text="Salvar" />
 
-				<Label fx:id="msgCadastro" layoutX="140.0" layoutY="14.0" prefHeight="32.0" prefWidth="251.0" textAlignment="CENTER" textFill="#5309ff">
+				<Label fx:id="msgCadastro" layoutX="157.0" layoutY="12.0" prefHeight="32.0" prefWidth="268.0" textAlignment="CENTER" textFill="#5309ff">
 					<font>
 						<Font name="System Bold" size="13.0" />
 					</font>
 				</Label>
-				<Label layoutX="154.0" layoutY="109.0" styleClass="texto-telaCadCliente" text="Nome" />
-				<Label layoutX="151.0" layoutY="183.0" styleClass="texto-telaCadCliente" text="CPF" />
-				<Label layoutX="149.0" layoutY="259.0" styleClass="texto-telaCadCliente" text="Número para Contato" />
-				<Label layoutX="149.0" layoutY="334.0" styleClass="texto-telaCadCliente" text="E-mail" />
-				<Label layoutX="144.0" layoutY="405.0" styleClass="texto-telaCadCliente" text="Endereço" />
-				<Label layoutX="93.0" layoutY="495.0" styleClass="texto-telaCadCliente" text="Limite de Crédito:" />
-            <Button layoutX="3.0" layoutY="4.0" mnemonicParsing="false" onAction="#irParaDashboard" text="Voltar" />
+				<Label layoutX="128.0" layoutY="102.0" styleClass="texto-telaCadCliente" text="Nome" />
+				<Label layoutX="128.0" layoutY="176.0" styleClass="texto-telaCadCliente" text="CPF" />
+				<Label layoutX="128.0" layoutY="252.0" styleClass="texto-telaCadCliente" text="Número para Contato" />
+				<Label layoutX="128.0" layoutY="327.0" styleClass="texto-telaCadCliente" text="E-mail" />
+				<Label layoutX="128.0" layoutY="398.0" styleClass="texto-telaCadCliente" text="Endereço" />
+				<Label layoutX="77.0" layoutY="488.0" styleClass="texto-telaCadCliente" text="Limite de Crédito:" />
+            <Button layoutX="3.0" layoutY="4.0" mnemonicParsing="false" onAction="#irParaDashboard" prefHeight="47.0" prefWidth="92.0" styleClass="salvar-button" text="Voltar" />
 			</children>
 		</AnchorPane>
 	</right>
