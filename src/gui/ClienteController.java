@@ -56,7 +56,7 @@ public class ClienteController extends BaseController implements Initializable {
 		String telefone = telefoneTF.getText();
 		String email = emailTF.getText();
 		String endereco = enderecoTF.getText();
-		String limiteCreditoStr = limite_creditoTF.getText();
+		String limiteCreditoStr = limite_creditoTF.getText().replaceAll("[^\\d]", "");
 
 		// Usado para acumular mensagens de erro
 		StringBuilder mensagemErro = new StringBuilder();
@@ -89,7 +89,7 @@ public class ClienteController extends BaseController implements Initializable {
 		}
 		try {
 			// Converte limite de crédito para double e continua o cadastro
-			double limiteCredito = Double.parseDouble(limiteCreditoStr);
+			double limiteCredito = Double.parseDouble(limiteCreditoStr) / 100.0;
 
 			// Cria um objeto Cliente com os dados capturados
 			Cliente cliente = new Cliente(nome, cpf, telefone, email, endereco, limiteCredito);
@@ -188,31 +188,57 @@ public class ClienteController extends BaseController implements Initializable {
 		}
 		if (telefoneTF != null) {
 			telefoneTF.setTextFormatter(new TextFormatter<>(change -> {
-		        String newText = change.getControlNewText();
+				String newText = change.getControlNewText();
 
-		        // Remove caracteres não numéricos
-		        newText = newText.replaceAll("[^\\d]", "");
+				// Remove caracteres não numéricos
+				newText = newText.replaceAll("[^\\d]", "");
 
-		        // Limita o texto a no máximo 11 dígitos (2 para DDD e até 9 para o número)
-		        if (newText.length() > 11) {
-		            return null;
-		        }
+				// Limita o texto a no máximo 11 dígitos (2 para DDD e até 9 para o número)
+				if (newText.length() > 11) {
+					return null;
+				}
 
-		        // Aplica a formatação gradualmente
-		        if (newText.length() >= 1 && newText.length() <= 2) {
-		            newText = "(" + newText;
-		        } else if (newText.length() > 2) {
-		            newText = "(" + newText.substring(0, 2) + ") " + newText.substring(2);
-		        }
+				// Aplica a formatação gradualmente
+				if (newText.length() >= 1 && newText.length() <= 2) {
+					newText = "(" + newText;
+				} else if (newText.length() > 2) {
+					newText = "(" + newText.substring(0, 2) + ") " + newText.substring(2);
+				}
 
-		        // Atualiza o campo com o texto formatado
-		        change.setText(newText);
-		        change.setRange(0, change.getControlText().length());
-		        change.setCaretPosition(newText.length());
-		        change.setAnchor(newText.length());
+				// Atualiza o campo com o texto formatado
+				change.setText(newText);
+				change.setRange(0, change.getControlText().length());
+				change.setCaretPosition(newText.length());
+				change.setAnchor(newText.length());
 
-		        return change;
-		    }));
+				return change;
+			}));
+		}
+		if (limite_creditoTF != null) {
+			 limite_creditoTF.setTextFormatter(new TextFormatter<>(change -> {
+			        String newText = change.getControlNewText().replaceAll("[^\\d]", "");
+
+			        if (newText.isEmpty()) {
+			            change.setText("0,00");
+			            change.setCaretPosition(4); // Define o cursor no final de "0,00"
+			            change.setAnchor(4);
+			            return change;
+			        }
+
+			        long value = Long.parseLong(newText);
+			        String formattedText = String.format("%,d", value / 100) + "," + String.format("%02d", value % 100);
+
+			        change.setText(formattedText);
+			        change.setRange(0, change.getControlText().length());
+
+			        // Verifica se o tamanho da posição do cursor está dentro do limite
+			        int newCaretPosition = Math.min(formattedText.length(), change.getText().length());
+			        change.setCaretPosition(newCaretPosition);
+			        change.setAnchor(newCaretPosition);
+
+			        return change;
+			    }));
 		}
 	}
+
 }
