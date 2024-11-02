@@ -69,10 +69,15 @@
 						<TableColumn fx:id="saldoCol" prefWidth="100.0" text="Saldo Pendente" />
 					</columns>
 				</TableView>
-				<Button layoutX="310.0" layoutY="120.0" mnemonicParsing="false" onAction="#irParaRegistrarCliente" style="-fx-border-color: null;" styleClass="button-custom" text="Adicionar Cliente">
+				<Button layoutX="308.0" layoutY="126.0" mnemonicParsing="false" onAction="#irParaRegistrarCliente" style="-fx-border-color: null;" styleClass="button-custom" text="Adicionar Cliente">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font></Button>
+            <Button layoutX="28.0" layoutY="126.0" mnemonicParsing="false" onAction="#onExcluirButtonClicked" style="-fx-border-color: null;" styleClass="button-custom" text="Excluir">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
 
 
 			</children>

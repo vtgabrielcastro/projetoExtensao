@@ -17,8 +17,10 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -30,8 +32,6 @@ public class ClienteController extends BaseController implements Initializable {
 
 	@FXML
 	private TextField nomeTF;
-	@FXML
-	private TextField cpfTF;
 	@FXML
 	private TextField telefoneTF;
 	@FXML
@@ -52,7 +52,6 @@ public class ClienteController extends BaseController implements Initializable {
 	public void salvarCliente() {
 		// Obtém o texto de cada campo de entrada
 		String nome = nomeTF.getText();
-		String cpf = cpfTF.getText();
 		String telefone = telefoneTF.getText();
 		String email = emailTF.getText();
 		String endereco = enderecoTF.getText();
@@ -65,9 +64,6 @@ public class ClienteController extends BaseController implements Initializable {
 
 		if (nome == null || nome.trim().isEmpty()) {
 			mensagemErro.append("O campo Nome deve ser preenchido.\n");
-		}
-		if (cpf == null || cpf.trim().isEmpty()) {
-			mensagemErro.append("O campo CPF deve ser preenchido.\n");
 		}
 		if (telefone == null || telefone.trim().isEmpty()) {
 			mensagemErro.append("O campo Telefone deve ser preenchido.\n");
@@ -92,14 +88,13 @@ public class ClienteController extends BaseController implements Initializable {
 			double limiteCredito = Double.parseDouble(limiteCreditoStr) / 100.0;
 
 			// Cria um objeto Cliente com os dados capturados
-			Cliente cliente = new Cliente(nome, cpf, telefone, email, endereco, limiteCredito);
+			Cliente cliente = new Cliente(nome, telefone, email, endereco, limiteCredito);
 
 			// Salva o cliente no banco de dados
 			clienteDAO.salvar(cliente);
 
 			// Limpa os campos após o salvamento
 			nomeTF.clear();
-			cpfTF.clear();
 			telefoneTF.clear();
 			emailTF.clear();
 			enderecoTF.clear();
@@ -180,6 +175,43 @@ public class ClienteController extends BaseController implements Initializable {
 		loadDateCliente();
 	}
 
+	@FXML
+	public void onExcluirButtonClicked() {
+		// Verifica se há um item selecionado
+		Cliente clienteSelecionado = tableCliente.getSelectionModel().getSelectedItem();
+
+		if (clienteSelecionado != null) {
+			// Confirmação para excluir o item
+			Alert confirmacao = new Alert(AlertType.CONFIRMATION);
+			confirmacao.setTitle("Confirmação de Exclusão");
+			confirmacao.setHeaderText("Tem certeza que deseja excluir o item selecionado?");
+			confirmacao.setContentText("Esta ação não poderá ser desfeita.");
+
+			confirmacao.showAndWait().ifPresent(response -> {
+				if (response == ButtonType.OK) {
+					// Remove o item da lista que alimenta a tabela
+					ClientList = tableCliente.getItems();
+					ClientList.remove(clienteSelecionado);
+
+					// Caso queira excluir também do banco de dados, adicione o código abaixo
+					clienteDAO.excluirCliente(clienteSelecionado);
+
+					Alert sucesso = new Alert(AlertType.INFORMATION);
+					sucesso.setTitle("Sucesso");
+					sucesso.setHeaderText(null);
+					sucesso.setContentText("Cliente excluído com sucesso!");
+					sucesso.show();
+				}
+			});
+		} else {
+			Alert alerta = new Alert(AlertType.WARNING);
+			alerta.setTitle("Nenhuma Seleção");
+			alerta.setHeaderText(null);
+			alerta.setContentText("Selecione um cliente para excluir.");
+			alerta.show();
+		}
+	}
+
 	public void initialize(URL url, ResourceBundle rb) {
 		if (tableCliente != null) {
 			loadDateCliente();
@@ -213,29 +245,29 @@ public class ClienteController extends BaseController implements Initializable {
 			}));
 		}
 		if (limite_creditoTF != null) {
-			 limite_creditoTF.setTextFormatter(new TextFormatter<>(change -> {
-			        String newText = change.getControlNewText().replaceAll("[^\\d]", "");
+			limite_creditoTF.setTextFormatter(new TextFormatter<>(change -> {
+				String newText = change.getControlNewText().replaceAll("[^\\d]", "");
 
-			        if (newText.isEmpty()) {
-			            change.setText("0,00");
-			            change.setCaretPosition(4); // Define o cursor no final de "0,00"
-			            change.setAnchor(4);
-			            return change;
-			        }
+				if (newText.isEmpty()) {
+					change.setText("0,00");
+					change.setCaretPosition(4); // Define o cursor no final de "0,00"
+					change.setAnchor(4);
+					return change;
+				}
 
-			        long value = Long.parseLong(newText);
-			        String formattedText = String.format("%,d", value / 100) + "," + String.format("%02d", value % 100);
+				long value = Long.parseLong(newText);
+				String formattedText = String.format("%,d", value / 100) + "," + String.format("%02d", value % 100);
 
-			        change.setText(formattedText);
-			        change.setRange(0, change.getControlText().length());
+				change.setText(formattedText);
+				change.setRange(0, change.getControlText().length());
 
-			        // Verifica se o tamanho da posição do cursor está dentro do limite
-			        int newCaretPosition = Math.min(formattedText.length(), change.getText().length());
-			        change.setCaretPosition(newCaretPosition);
-			        change.setAnchor(newCaretPosition);
+				// Verifica se o tamanho da posição do cursor está dentro do limite
+				int newCaretPosition = Math.min(formattedText.length(), change.getText().length());
+				change.setCaretPosition(newCaretPosition);
+				change.setAnchor(newCaretPosition);
 
-			        return change;
-			    }));
+				return change;
+			}));
 		}
 	}
 

@@ -5,7 +5,6 @@ import java.sql.Timestamp;
 public class Cliente {
 	private int id_cliente;
 	private String nome;
-	private String cpf;
 	private String telefone;
 	private String email;
 	private String endereco;
@@ -14,9 +13,8 @@ public class Cliente {
 	private boolean status;
 	private Timestamp data_cadastro;
 	
-	public Cliente(String nome, String cpf, String telefone, String email, String endereco, double limite_credito) {
+	public Cliente(String nome, String telefone, String email, String endereco, double limite_credito) {
 		this.nome = nome;
-		this.cpf = cpf;
 		this.telefone = telefone;
 		this.email = email;
 		this.endereco = endereco;
@@ -40,12 +38,6 @@ public class Cliente {
 	}
 	public void setNome(String nome) {
 		this.nome = nome;
-	}
-	public String getCpf() {
-		return cpf;
-	}
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
 	}
 	public String getTelefone() {
 		return telefone;
