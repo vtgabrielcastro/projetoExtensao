@@ -114,8 +114,6 @@ public class ClienteController extends BaseController implements Initializable {
 	}
 
 	@FXML
-	private Button logoutButton;
-	@FXML
 	private Button btnListaCliente;
 
 	@FXML

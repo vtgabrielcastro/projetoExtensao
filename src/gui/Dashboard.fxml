@@ -33,12 +33,12 @@
 					mnemonicParsing="false" onAction="#irParaListaDeClientes"
 					styleClass="button-custom" text="Lista de Clientes" />
 
-				<Button fx:id="btnRegistroVenda" layoutX="17.0"
+				<Button onAction="#irParaVenda" layoutX="17.0"
 					layoutY="245.0" mnemonicParsing="false" styleClass="button-custom"
 					text="Registrar Venda" />
 
-				<Button fx:id="logoutButton" layoutX="17.0" layoutY="527.0"
-					mnemonicParsing="false" onAction="#handleLogout"
+				<Button layoutX="17.0" layoutY="527.0"
+					mnemonicParsing="false" onAction="#onSairButtonClicked"
 					styleClass="button-custom" text="SAIR" />
 
 				<Button layoutX="17.0" layoutY="380.0"

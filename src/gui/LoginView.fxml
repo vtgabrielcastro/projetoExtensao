@@ -29,9 +29,9 @@
    <right>
       <AnchorPane prefHeight="500.0" prefWidth="396.0" BorderPane.alignment="CENTER">
          <children>
-            <TextField fx:id="usernameField" layoutX="119.0" layoutY="202.0" promptText="Digite o Usuário" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
-            <PasswordField fx:id="passwordField" layoutX="119.0" layoutY="272.0" promptText="Digite a Senha" style="-fx-background-color: transparent; -fx-border-color: #0594ff; -fx-border-width: 0px 0px 2px 0px;" />
-            <Button fx:id="loginButton" layoutX="146.0" layoutY="331.0" mnemonicParsing="false" onAction="#handleLogin" prefHeight="36.0" prefWidth="115.0" styleClass="salvar-button" text="Entrar">
+            <TextField fx:id="usernameField" layoutX="124.0" layoutY="180.0" promptText="Digite o Usuário" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
+            <PasswordField fx:id="passwordField" layoutX="124.0" layoutY="258.0" promptText="Digite a Senha" style="-fx-background-color: transparent; -fx-border-color: #0594ff; -fx-border-width: 0px 0px 2px 0px;" />
+            <Button fx:id="loginButton" layoutX="124.0" layoutY="322.0" mnemonicParsing="false" onAction="#handleLogin" prefHeight="36.0" prefWidth="177.0" styleClass="salvar-button" text="Entrar">
                <font>
                   <Font name="Cambria" size="14.0" />
                </font>
@@ -41,8 +41,8 @@
                <effect>
                   <DropShadow />
                </effect></Button>
-            <Hyperlink layoutX="165.0" layoutY="431.0" text="Alterar senha" />
-            <Text layoutX="141.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="LOGIN">
+            <Hyperlink layoutX="153.0" layoutY="417.0" text="Novo? Cadastre-se" />
+            <Text layoutX="145.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="LOGIN">
                <font>
                   <Font name="Symbol" size="48.0" />
                </font>
@@ -54,12 +54,12 @@
                   </DropShadow>
                </effect>
             </Text>
-            <Text layoutX="119.0" layoutY="195.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texto-telaCadCliente" text="Usuário" />
+            <Text layoutX="124.0" layoutY="173.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texto-telaCadCliente" text="Usuário" />
               
-            <Text layoutX="119.0" layoutY="268.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texto-telaCadCliente" text="Senha" />
+            <Text layoutX="124.0" layoutY="254.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texto-telaCadCliente" text="Senha" />
             
             <Label fx:id="errorLabel" layoutX="140.0" layoutY="380.0" textFill="red" />
-            <Button layoutX="336.0" minWidth="43.0" mnemonicParsing="false" onAction="#exit" prefHeight="30.0" prefWidth="43.0" style="-fx-background-color: #0598ff;" text="X" textFill="WHITE">
+            <Button layoutX="349.0" layoutY="-1.0" minWidth="43.0" mnemonicParsing="false" onAction="#exit" prefHeight="30.0" prefWidth="43.0" style="-fx-background-color: #0598ff;" text="X" textFill="WHITE">
                <font>
                   <Font name="Roboto Medium" size="12.0" />
                </font>
