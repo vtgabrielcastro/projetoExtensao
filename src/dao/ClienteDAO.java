@@ -59,4 +59,20 @@ public class ClienteDAO {
 			e.printStackTrace();
 		}
 	}
+	
+	public void atualizarCliente(Cliente cliente) {
+	    String sql = "UPDATE cliente SET nome = ?, telefone = ?, email = ?, endereco = ?, limite_credito = ? WHERE id_cliente = ?";
+	    try (Connection conn = ConnectionBD.getConnection(); PreparedStatement stmt = conn.prepareStatement(sql)) {
+	        stmt.setString(1, cliente.getNome());
+	        stmt.setString(2, cliente.getTelefone());
+	        stmt.setString(3, cliente.getEmail());
+	        stmt.setString(4, cliente.getEndereco());
+	        stmt.setDouble(5, cliente.getLimite_credito());
+	        stmt.setInt(6, cliente.getId_cliente());
+	        
+	        stmt.executeUpdate();
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
+	}
 }

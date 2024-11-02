@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="500.0" stylesheets="@../application/application.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.EditarClienteController">
+	<right>
+		<AnchorPane prefHeight="600.0" prefWidth="500.0" BorderPane.alignment="CENTER">
+		
+			<children>
+			<Button layoutX="457.0" layoutY="-1.0" minWidth="43.0" mnemonicParsing="false" onAction="#exit" prefHeight="30.0" prefWidth="43.0" style="-fx-background-color: #0598ff;" text="X" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+				<Label layoutX="155.0" layoutY="43.0" styleClass="text-left" text="Edição Cliente">
+					<font>
+						<Font name="Cooper Black" size="28.0" />
+					</font>
+				</Label>
+				<TextField fx:id="nomeTF" layoutX="125.0" layoutY="130.0" prefHeight="40.0" prefWidth="263.0" promptText="Nome do Cliente" />
+				<TextField fx:id="telefoneTF" layoutX="125.0" layoutY="204.0" prefHeight="40.0" prefWidth="263.0" promptText="Telefone" />
+				<TextField fx:id="enderecoTF" layoutX="125.0" layoutY="349.0" prefHeight="40.0" prefWidth="263.0" promptText="Endereço" />
+				<TextField fx:id="limite_creditoTF" layoutX="199.0" layoutY="406.0" promptText="R$ Limite de Crédito" />
+				<TextField fx:id="emailTF" layoutX="125.0" layoutY="279.0" prefHeight="40.0" prefWidth="263.0" promptText="E-mail" />
+
+				<Button layoutX="133.0" layoutY="476.0" mnemonicParsing="false" onAction="#onSalvarButtonClicked" prefHeight="47.0" prefWidth="247.0" styleClass="salvar-button" text="Editar" />
+				<Label layoutX="128.0" layoutY="108.0" styleClass="texto-telaCadCliente" text="Nome" />
+				<Label layoutX="128.0" layoutY="181.0" styleClass="texto-telaCadCliente" text="Número para Contato" />
+				<Label layoutX="128.0" layoutY="256.0" styleClass="texto-telaCadCliente" text="E-mail" />
+				<Label layoutX="128.0" layoutY="327.0" styleClass="texto-telaCadCliente" text="Endereço" />
+				<Label layoutX="77.0" layoutY="417.0" styleClass="texto-telaCadCliente" text="Limite de Crédito:" />
+			</children>
+		</AnchorPane>
+	</right>
+</BorderPane>

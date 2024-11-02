@@ -1,5 +1,6 @@
 package application;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -68,5 +69,8 @@ public class BaseController {
 			// usuário na tela atual
 		});
 	}
-
+	
+	public void exit() {
+		Platform.exit();
+	}
 }

@@ -65,6 +65,7 @@
 						<TableColumn fx:id="idCol" prefWidth="44.0" text="id" />
 						<TableColumn fx:id="nomeCol" prefWidth="96.0" text="nome" />
 						<TableColumn fx:id="telefoneCol" prefWidth="96.0" text="telefone" />
+						<TableColumn fx:id="emailCol" prefWidth="96.0" text="E-mail" />
 						<TableColumn fx:id="enderecoCol" prefWidth="130.0" text="endereço" />
 						<TableColumn fx:id="saldoCol" prefWidth="100.0" text="Saldo Pendente" />
 					</columns>
@@ -73,7 +74,12 @@
                <font>
                   <Font name="System Bold" size="12.0" />
                </font></Button>
-            <Button layoutX="28.0" layoutY="126.0" mnemonicParsing="false" onAction="#onExcluirButtonClicked" style="-fx-border-color: null;" styleClass="button-custom" text="Excluir">
+            <Button layoutX="28.0" layoutY="126.0" mnemonicParsing="false" onAction="#onExcluirButtonClicked" prefWidth="77.0" style="-fx-border-color: null;" styleClass="button-custom" text="Excluir">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button layoutX="28.0" layoutY="90.0" mnemonicParsing="false" onAction="#onEditarButtonClicked" prefWidth="77.0" style="-fx-border-color: null;" styleClass="button-custom" text="Editar">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>

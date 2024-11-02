@@ -1,5 +1,6 @@
 package gui;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -12,11 +13,13 @@ import application.Alerts;
 import application.BaseController;
 import application.ConnectionBD;
 import dao.ClienteDAO;
-import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
@@ -27,6 +30,8 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextFormatter;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 public class ClienteController extends BaseController implements Initializable {
 
@@ -109,12 +114,42 @@ public class ClienteController extends BaseController implements Initializable {
 	}
 
 	@FXML
-	private Button btnListaCliente;
+	public void onEditarButtonClicked() {
+		Cliente clienteSelecionado = tableCliente.getSelectionModel().getSelectedItem();
+
+		if (clienteSelecionado != null) {
+			try {
+				// Carrega o arquivo FXML e configura o novo Stage
+				FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/EditarCliente.fxml"));
+				Parent root = loader.load();
+
+				// Configura o controller e passa o cliente selecionado
+				EditarClienteController controller = loader.getController();
+				controller.setCliente(clienteSelecionado);
+
+				Stage stage = new Stage();
+				stage.setTitle("Edição de Cliente");
+				stage.setScene(new Scene(root));
+				stage.initModality(Modality.APPLICATION_MODAL);
+				stage.showAndWait();
+
+				// Atualiza a tabela após a edição
+				tableCliente.refresh();
+
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		} else {
+			Alert alerta = new Alert(Alert.AlertType.WARNING);
+			alerta.setTitle("Nenhuma Seleção");
+			alerta.setHeaderText(null);
+			alerta.setContentText("Selecione um cliente para editar.");
+			alerta.show();
+		}
+	}
 
 	@FXML
-	private void exit() {
-		Platform.exit();
-	}
+	private Button btnListaCliente;
 
 	@FXML
 	private TableView<Cliente> tableCliente;
@@ -124,6 +159,8 @@ public class ClienteController extends BaseController implements Initializable {
 	private TableColumn<Cliente, String> nomeCol;
 	@FXML
 	private TableColumn<Cliente, String> telefoneCol;
+	@FXML
+	private TableColumn<Cliente, String> emailCol;
 	@FXML
 	private TableColumn<Cliente, String> enderecoCol;
 	@FXML
@@ -142,13 +179,13 @@ public class ClienteController extends BaseController implements Initializable {
 
 		try {
 			ClientList.clear();
-			query = "select id_cliente, nome, telefone, endereco, saldo_devedor from Cliente";
+			query = "select id_cliente, nome, telefone, email, endereco, saldo_devedor from Cliente";
 			preparedStatement = connection.prepareStatement(query);
 			resultSet = preparedStatement.executeQuery();
 
 			while (resultSet.next()) {
 				ClientList.add(new Cliente(resultSet.getInt("id_cliente"), resultSet.getString("nome"),
-						resultSet.getString("telefone"), resultSet.getString("endereco"),
+						resultSet.getString("telefone"), resultSet.getString("email"), resultSet.getString("endereco"),
 						resultSet.getDouble("saldo_devedor")));
 				tableCliente.setItems(ClientList);
 			}
@@ -165,14 +202,10 @@ public class ClienteController extends BaseController implements Initializable {
 		idCol.setCellValueFactory(new PropertyValueFactory<>("id_cliente"));
 		nomeCol.setCellValueFactory(new PropertyValueFactory<>("nome"));
 		telefoneCol.setCellValueFactory(new PropertyValueFactory<>("telefone"));
+		emailCol.setCellValueFactory(new PropertyValueFactory<>("email"));
 		enderecoCol.setCellValueFactory(new PropertyValueFactory<>("endereco"));
 		saldoCol.setCellValueFactory(new PropertyValueFactory<>("saldo_devedor"));
 
-	}
-
-	@FXML
-	public void atualizarLista() {
-		loadDateCliente();
 	}
 
 	@FXML

@@ -12,7 +12,6 @@ import application.Alerts;
 import application.BaseController;
 import application.ConnectionBD;
 import dao.ClienteDAO;
-import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -120,11 +119,6 @@ public class ProdutoController extends BaseController implements Initializable {
 		produtoCol.setCellValueFactory(new PropertyValueFactory<>("nome_produto"));
 		precoProdutoCol.setCellValueFactory(new PropertyValueFactory<>("preco_unitario"));
 
-	}
-
-	@FXML
-	private void exit() {
-		Platform.exit();
 	}
 
 	public void initialize(URL url, ResourceBundle rb) {
