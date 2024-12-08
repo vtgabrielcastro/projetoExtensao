@@ -16,6 +16,8 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -37,7 +39,7 @@ public class ProdutoController extends BaseController implements Initializable {
 	public void salvarProduto() {
 		String nomeP = textFieldProduto.getText();
 		String precoStr = textFieldPrecoProduto.getText();
-		StringBuilder mensagemErro = new StringBuilder();
+ 		StringBuilder mensagemErro = new StringBuilder();
 
 		// Verificação de campos vazios
 	    if (nomeP == null || nomeP.trim().isEmpty()) {
@@ -120,7 +122,41 @@ public class ProdutoController extends BaseController implements Initializable {
 		precoProdutoCol.setCellValueFactory(new PropertyValueFactory<>("preco_unitario"));
 
 	}
+	
+	@FXML
+	public void onExcluirButtonClicked() {
+		Produto produtoSelecionado = tableProdutos.getSelectionModel().getSelectedItem();
+		if (produtoSelecionado != null) {
+			// Confirmação para excluir o item
+			Alert confirmacao = new Alert(AlertType.CONFIRMATION);
+			confirmacao.setTitle("Confirmação de Exclusão");
+			confirmacao.setHeaderText("Tem certeza que deseja excluir o item selecionado?");
+			confirmacao.setContentText("Esta ação não poderá ser desfeita.");
 
+			confirmacao.showAndWait().ifPresent(response -> {
+				if (response == ButtonType.OK) {
+					// Remove o item da lista que alimenta a tabela
+					ProdutoList = tableProdutos.getItems();
+					ProdutoList.remove(produtoSelecionado);
+
+					clienteDAO.excluirProduto(produtoSelecionado);
+
+					Alert sucesso = new Alert(AlertType.INFORMATION);
+					sucesso.setTitle("Sucesso");
+					sucesso.setHeaderText(null);
+					sucesso.setContentText("Produto excluído com sucesso!");
+					sucesso.show();
+				}
+			});
+		} else {
+			Alert alerta = new Alert(AlertType.WARNING);
+			alerta.setTitle("Nenhuma Seleção");
+			alerta.setHeaderText(null);
+			alerta.setContentText("Selecione um produto para excluir.");
+			alerta.show();
+		}
+	}
+	
 	public void initialize(URL url, ResourceBundle rb) {
 		loadDateProduto();
 	}

@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="700.0" stylesheets="@../application/application.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ProdutoController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" stylesheets="@../application/application.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ProdutoController">
 	<left>
 		<AnchorPane prefHeight="600.0" prefWidth="200.0" style="-fx-background-color: #0598ff;" BorderPane.alignment="CENTER">
 			<children>
@@ -46,38 +46,36 @@
 		</AnchorPane>
 	</left>
 	<right>
-		<AnchorPane prefHeight="600.0" prefWidth="500.0" BorderPane.alignment="CENTER">
+		<AnchorPane prefHeight="600.0" prefWidth="604.0" BorderPane.alignment="CENTER">
 			<children>
-				<Button layoutX="457.0" layoutY="-1.0" minWidth="43.0" mnemonicParsing="false" onAction="#exit" prefHeight="30.0" prefWidth="43.0" style="-fx-background-color: #0598ff;" text="X" textFill="WHITE">
+				<Button layoutX="457.0" layoutY="-1.0" minWidth="43.0" mnemonicParsing="false" onAction="#exit" prefHeight="30.0" prefWidth="43.0" style="-fx-background-color: #0598ff;" text="X" textFill="WHITE" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
-				<Label layoutX="14.0" layoutY="13.0" text="Registrar Produto">
+				<Label layoutX="170.0" layoutY="30.0" text="Registrar Produto">
 					<font>
 						<Font name="Verdana Bold" size="26.0" />
 					</font>
 				</Label>
-				<TextField fx:id="textFieldProduto" layoutX="112.0" layoutY="100.0" prefHeight="40.0" prefWidth="263.0" promptText="Descricao" />
-				<TextField fx:id="textFieldPrecoProduto" layoutX="112.0" layoutY="173.0" prefHeight="40.0" prefWidth="263.0" promptText="R$" />
+				<TextField fx:id="textFieldProduto" layoutX="169.0" layoutY="114.0" prefHeight="40.0" prefWidth="263.0" promptText="Descricao" />
+				<TextField fx:id="textFieldPrecoProduto" layoutX="169.0" layoutY="187.0" prefHeight="40.0" prefWidth="263.0" promptText="R$" />
 
-				<Button layoutX="183.0" layoutY="235.0" mnemonicParsing="false" onAction="#salvarProduto" prefHeight="29.0" prefWidth="121.0" styleClass="salvar-button" text="Salvar" />
-
-
-				<Label layoutX="122.0" layoutY="75.0" styleClass="texto-telaCadCliente" text="Nome do Produto" />
-				<Label layoutX="122.0" layoutY="153.0" styleClass="texto-telaCadCliente" text="Preço Unitário" />
-				<Label fx:id="msgLabel" layoutX="163.0" layoutY="300.0" prefHeight="29.0" prefWidth="200.0" styleClass="texto-telaCadCliente" text="" textFill="#635bff">
-               <font>
-                  <Font name="SansSerif Regular" size="14.0" />
-               </font></Label>
+				<Button layoutX="240.0" layoutY="249.0" mnemonicParsing="false" onAction="#salvarProduto" prefHeight="29.0" prefWidth="121.0" styleClass="salvar-button" text="Salvar" />
 
 
-				<TableView fx:id="tableProdutos" layoutX="34.0" layoutY="353.0" prefHeight="221.0" prefWidth="432.0">
+				<Label layoutX="179.0" layoutY="89.0" styleClass="texto-telaCadCliente" text="Nome do Produto" />
+				<Label layoutX="179.0" layoutY="161.0" styleClass="texto-telaCadCliente" text="Preço Unitário" />
+
+
+				<TableView fx:id="tableProdutos" layoutX="34.0" layoutY="353.0" prefHeight="240.0" prefWidth="500.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0">
 					<columns>
 						<TableColumn fx:id="idCol" prefWidth="57.0" text="Id" />
-						<TableColumn fx:id="produtoCol" prefWidth="230.0" text="Produto" />
-						<TableColumn fx:id="precoProdutoCol" prefWidth="146.0" text="Preço Unitario" />
+						<TableColumn fx:id="produtoCol" prefWidth="296.0" text="Produto" />
+						<TableColumn fx:id="precoProdutoCol" prefWidth="123.0" text="Preço Unitario" />
 					</columns>
 				</TableView>
+            <Button layoutX="58.0" layoutY="329.0" mnemonicParsing="false" onAction="#onExcluirButtonClicked" style="-fx-background-color: #0599ff; -fx-text-fill: white; -fx-cursor: HAND; -fx-padding: 7 15;" text="Excluir" AnchorPane.leftAnchor="50.0" />
+            <Line endX="420.0" layoutX="159.0" layoutY="313.0" startX="-131.0" stroke="#6ca3e1" strokeType="OUTSIDE" />
 			</children>
 		</AnchorPane>
 	</right>

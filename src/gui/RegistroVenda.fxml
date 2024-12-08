@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="700.0" stylesheets="@../application/application.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Control.InterfaceController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" stylesheets="@../application/application.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Control.InterfaceController">
 	<left>
 		<AnchorPane prefHeight="390.0" prefWidth="200.0" style="-fx-background-color: #0598ff;" BorderPane.alignment="CENTER">
 			<children>
@@ -38,14 +38,14 @@
 		</AnchorPane>
 	</left>
 	<right>
-		<AnchorPane prefHeight="500.0" prefWidth="504.0" BorderPane.alignment="CENTER">
+		<AnchorPane prefHeight="600.0" prefWidth="603.0" BorderPane.alignment="CENTER">
 			<children>
-				<Text layoutX="100.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Registro de Vendas">
+				<Text layoutX="146.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Registro de Vendas">
 					<font>
 						<Font name="Roboto" size="36.0" />
 					</font>
 				</Text>
-				<Button layoutX="465.0" layoutY="-1.0" minWidth="43.0" mnemonicParsing="false" onAction="#exit" prefHeight="30.0" prefWidth="43.0" style="-fx-background-color: #0598FF;" text="X" textFill="WHITE">
+				<Button layoutX="465.0" layoutY="-1.0" minWidth="43.0" mnemonicParsing="false" onAction="#exit" prefHeight="30.0" prefWidth="43.0" style="-fx-background-color: #0598FF;" text="X" textFill="WHITE" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
 					<font>
 						<Font name="Roboto Medium" size="14.0" />
 					</font>

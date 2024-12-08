@@ -15,10 +15,10 @@ public class ClienteDAO {
 		try (Connection conn = ConnectionBD.getConnection(); PreparedStatement stmt = conn.prepareStatement(sql)) {
 
 			stmt.setString(1, cliente.getNome()); // Define o valor para o nome
-			stmt.setString(3, cliente.getTelefone());
-			stmt.setString(4, cliente.getEmail());
-			stmt.setString(5, cliente.getEndereco());
-			stmt.setDouble(6, cliente.getLimite_credito());
+			stmt.setString(2, cliente.getTelefone());
+			stmt.setString(3, cliente.getEmail());
+			stmt.setString(4, cliente.getEndereco());
+			stmt.setDouble(5, cliente.getLimite_credito());
 
 			stmt.executeUpdate(); // Executa a inserção
 
@@ -56,6 +56,19 @@ public class ClienteDAO {
 
 		} catch (SQLException e) {
 			System.out.println("Erro ao excluir cliente: " + e.getMessage());
+			e.printStackTrace();
+		}
+	}
+	public void excluirProduto(Produto produto) {
+		String sql = "DELETE FROM produto WHERE id_produto = ?"; 
+
+		try (Connection conn = ConnectionBD.getConnection(); PreparedStatement stmt = conn.prepareStatement(sql)) {
+			stmt.setInt(1, produto.getId_produto()); 
+
+			stmt.executeUpdate();
+
+		} catch (SQLException e) {
+			System.out.println("Erro ao excluir produto: " + e.getMessage());
 			e.printStackTrace();
 		}
 	}
