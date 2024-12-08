@@ -63,10 +63,10 @@
 				<TableView fx:id="tableCliente" layoutY="159.0" prefHeight="363.0" prefWidth="355.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
 					<columns>
 						<TableColumn fx:id="idCol" prefWidth="31.0" text="id" />
-						<TableColumn fx:id="nomeCol" prefWidth="97.0" text="nome" />
-						<TableColumn fx:id="telefoneCol" prefWidth="108.0" text="telefone" />
+						<TableColumn fx:id="nomeCol" prefWidth="97.0" text="Nome" />
+						<TableColumn fx:id="telefoneCol" prefWidth="108.0" text="Telefone" />
 						<TableColumn fx:id="emailCol" prefWidth="132.0" text="E-mail" />
-						<TableColumn fx:id="enderecoCol" prefWidth="113.0" text="endereço" />
+						<TableColumn fx:id="enderecoCol" prefWidth="113.0" text="Endereço" />
 						<TableColumn fx:id="saldoCol" prefWidth="96.0" text="Saldo Pendente" />
 					</columns>
 				</TableView>

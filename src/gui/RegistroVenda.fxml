@@ -2,13 +2,16 @@
 
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" stylesheets="@../application/application.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Control.InterfaceController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" stylesheets="@../application/application.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.VendaController">
 	<left>
 		<AnchorPane prefHeight="390.0" prefWidth="200.0" style="-fx-background-color: #0598ff;" BorderPane.alignment="CENTER">
 			<children>
@@ -53,6 +56,19 @@
 						<Cursor fx:constant="HAND" />
 					</cursor>
 				</Button>
+            <TextField layoutX="208.0" layoutY="144.0" />
+            <Text layoutX="233.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Digite o nome do Cliente" />
+            <Button layoutX="411.0" layoutY="147.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="84.0" text="Pesquisar" />
+            <Line endX="221.0" layoutX="302.0" layoutY="286.0" startX="-239.0" />
+            
+            <TableView  fx:id="tableCliente" layoutX="64.0" layoutY="341.0" prefHeight="200.0" prefWidth="468.0">
+              <columns>
+                <TableColumn  fx:id="idCol" prefWidth="75.0" text="Id" />
+                <TableColumn  fx:id="nomeCol" prefWidth="370.0" text="Nome" />
+              </columns>
+            </TableView>
+            
+            <Button layoutX="239.0" layoutY="302.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="121.0" text="Registrar Venda" />
 			</children>
 		</AnchorPane>
 	</right>
